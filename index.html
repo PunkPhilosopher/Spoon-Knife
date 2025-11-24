@@ -1,20 +1,42 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Spoon-Knife</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Spoon-Knife - A classic GitHub forking example">
+  <title>Spoon-Knife | GitHub Fork Demo</title>
+  <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+  <main>
+    <header>
+      <img src="forkit.gif" id="octocat" alt="GitHub Octocat mascot" />
+    </header>
 
-<img src="forkit.gif" id="octocat" alt="" />
+    <section class="content">
+      <!-- Feel free to change this text here -->
+      <p class="message">
+        Fork me? Fork you, @octocat!
+      </p>
 
-<!-- Feel free to change this text here -->
-<p>
-  Fork me? Fork you, @octocat!
-</p>
+      <div class="stats">
+        <button id="fork-counter" class="stat-button">
+          <span class="stat-label">Forks</span>
+          <span class="stat-value" id="fork-count">0</span>
+        </button>
+        <button id="theme-toggle" class="stat-button">
+          <span class="stat-label">🌓</span>
+          <span class="stat-value">Toggle Theme</span>
+        </button>
+      </div>
+    </section>
 
+    <footer>
+      <p class="footer-text">Enhanced with Claude Code capabilities ✨</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
