@@ -100,9 +100,64 @@ function activateEasterEgg() {
   }, 3000);
 }
 
+// GitHub API Integration - Fetch real repository stats
+async function fetchGitHubStats() {
+  try {
+    // Try to fetch from the original Spoon-Knife repo as a demo
+    const response = await fetch('https://api.github.com/repos/octocat/Spoon-Knife');
+
+    if (!response.ok) {
+      throw new Error('GitHub API request failed');
+    }
+
+    const data = await response.json();
+
+    // Update the fork counter with real data
+    const realForkCount = data.forks_count;
+    console.log(`📊 Real GitHub Stats: ${realForkCount.toLocaleString()} forks`);
+
+    // Optionally update the UI with real data if desired
+    // Uncomment the line below to show real fork count instead of local counter
+    // document.getElementById('fork-count').textContent = realForkCount.toLocaleString();
+
+    return {
+      forks: realForkCount,
+      stars: data.stargazers_count,
+      watchers: data.watchers_count,
+      openIssues: data.open_issues_count
+    };
+  } catch (error) {
+    console.warn('Could not fetch GitHub stats:', error.message);
+    return null;
+  }
+}
+
+// Fetch stats on page load (non-blocking)
+fetchGitHubStats().then(stats => {
+  if (stats) {
+    console.log(`⭐ Stars: ${stats.stars.toLocaleString()}`);
+    console.log(`👀 Watchers: ${stats.watchers.toLocaleString()}`);
+    console.log(`🐛 Open Issues: ${stats.openIssues.toLocaleString()}`);
+  }
+});
+
+// Performance monitoring
+if (window.performance && window.performance.timing) {
+  window.addEventListener('load', () => {
+    const loadTime = window.performance.timing.domContentLoadedEventEnd -
+                     window.performance.timing.navigationStart;
+    console.log(`⚡ Page loaded in ${loadTime}ms`);
+  });
+}
+
 // Add keyboard shortcuts info
 console.log('%c🚀 Claude Code Demo', 'font-size: 20px; font-weight: bold; color: #0969da;');
 console.log('%cKeyboard shortcuts:', 'font-size: 14px; font-weight: bold;');
 console.log('• Try the Konami code for a surprise!');
 console.log('• Click the fork counter to increment');
 console.log('• Toggle dark theme with the theme button');
+console.log('\n%cFeatures:', 'font-size: 14px; font-weight: bold;');
+console.log('• GitHub API integration for live stats');
+console.log('• LocalStorage for persistent preferences');
+console.log('• Responsive design with dark mode');
+console.log('• Performance monitoring');

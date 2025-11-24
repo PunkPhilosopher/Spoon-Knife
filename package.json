@@ -1,0 +1,33 @@
+{
+  "name": "spoon-knife-modernized",
+  "version": "2.0.0",
+  "description": "A modernized version of GitHub's classic Spoon-Knife repository, demonstrating Claude Code capabilities",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "lint:html": "echo 'HTML validation would run here'",
+    "lint:css": "echo 'CSS linting would run here'",
+    "lint:js": "echo 'JavaScript linting would run here'",
+    "test": "echo 'Tests would run here'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PunkPhilosopher/Spoon-Knife"
+  },
+  "keywords": [
+    "demo",
+    "fork",
+    "github",
+    "static-site",
+    "vanilla-js",
+    "responsive-design",
+    "dark-mode",
+    "claude-code"
+  ],
+  "author": "PunkPhilosopher (enhanced by Claude Code)",
+  "license": "MIT",
+  "homepage": "https://github.com/PunkPhilosopher/Spoon-Knife#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}
